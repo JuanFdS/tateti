@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160616193430) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "games", force: :cascade do |t|
     t.integer  "ta_te_ti_id"
     t.integer  "player1_id"
@@ -21,9 +24,9 @@ ActiveRecord::Schema.define(version: 20160616193430) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "games", ["player1_id"], name: "index_games_on_player1_id"
-  add_index "games", ["player2_id"], name: "index_games_on_player2_id"
-  add_index "games", ["ta_te_ti_id"], name: "index_games_on_ta_te_ti_id"
+  add_index "games", ["player1_id"], name: "index_games_on_player1_id", using: :btree
+  add_index "games", ["player2_id"], name: "index_games_on_player2_id", using: :btree
+  add_index "games", ["ta_te_ti_id"], name: "index_games_on_ta_te_ti_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string   "type"
