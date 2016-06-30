@@ -1,0 +1,11 @@
+<h1>Juegos guardados</h1>
+<% games_ids.each do |game_id| %>
+    <a href="/ta_te_tis/<%= game_id %>"> Juego <%= game_id %></a><br>
+<% end %>
+<div>
+  <form name="new" action="/ta_te_tis/new" method="post">
+    <div>
+      <button class="action">Nuevo Juego</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,41 @@
+<div>
+  <h2>Juego <%= ta_te_ti.id %></h2>
+</div>
+<div>
+  <% players_and_symbols.each_with_index do |player_symbol, index| %>
+      <h3>Jugador <%= index+1 %>:</h3>
+      ID: <%= player_symbol[0].id %><br>
+      Pieza: <%= player_symbol[1] %><br>
+  <% end %>
+</div>
+<div>
+  <h3> Tablero: </h3>
+  <% board.each do |row| %>
+      <%= row %><br>
+  <% end %>
+</div>
+
+<% if (game_over) %>
+    <h3> Juego Terminado</h3>
+<% else %>
+    <div>
+      <h4>Próxima jugada: <%= next_move %></h4>
+    </div>
+
+    <div>
+      <form name="play" action="play" method="post">
+
+        <h1>Posición a jugar:</h1>
+
+        <% positions.each do |position| %>
+            <%= radio_button_tag(:pos, position.to_s) %>
+            <%= label_tag("pos_#{position.to_s}", position.to_s) %>
+        <% end %>
+
+        <input type="hidden" name="id" value="<%= ta_te_ti.id %>">
+        <div>
+          <button class="action">Enviar</button>
+        </div>
+      </form>
+    </div>
+<% end %>
