@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  root 'ta_te_ti#list'
+
   post 'ta_te_tis/new' => 'ta_te_ti#new'
 
   post 'ta_te_tis/play' => 'ta_te_ti#play'
